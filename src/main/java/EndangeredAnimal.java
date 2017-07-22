@@ -4,10 +4,10 @@ import java.util.List;
 
 public class EndangeredAnimal {
   public String name;
-  public int id;
-  public boolean endangered;
   private String health;
   private String age;
+  public int id;
+  public boolean endangered;
 
   public EndangeredAnimal(String name, String health, String age) {
     this.name = name;
