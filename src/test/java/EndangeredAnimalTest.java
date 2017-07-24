@@ -44,7 +44,7 @@ public class EndangeredAnimalTest {
     assertTrue(firstEndangeredAnimal.equals(anotherEndangeredAnimal));
   }
 
-//needs save?
+//needs save for database attribute retrieval? what is the difference between this and instantiating with health?
   @Test
   public void getHealth_returnsHealthAttribute_true() {
     EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Fox", "Healthy", "Young");

@@ -19,13 +19,16 @@ To create the necessary databases, launch postgres, then psql, and run the follo
 
 ### Code Edits Made
 
-* `;`
-* `;`
-* `;`
-* `;`
-* `;`
-* `;`
-
+* `In build.gradle there was a bad file name (archivesBaseName = "java_wilderness-tracker") changed to "java-wildlife-tracker";`
+* `In endangered animal details, the id and name were displaying, but not the health or age until a sighting was added;`
+* `Small copy error fixed and title given more distinction on animal.vtl: “ID: >$sighting.getId()” changed to  “Sighting ID: $sighting.getId()”;`
+* `Copy edit on index.vtl: changed the All Animals list to Non-Endangered Specifically;`
+* `AnimalTest.java: test name changed to “animal_instantiatesCorrectly_true” to reflect true value;`
+* `AnimalTest.java: test name changed to “equals_returnsTrueIfNameIsTheSame” to reflect assertTrue method;`
+* `Added line breaks and extended the strong tags on both the animal.vtl and the endangered_animal.vtl to make the logs more readable and distinct from each other;`
+* `EndangeredAnimalTest.java: test name changed to “save_assignsIdAndSavesObjectToDatabase_true” to reflect assertEquals method;`
+* `Added missing tests to EndangeredAnimalTest.java;`
+* `AnimalTest.java: test name changed to “all_returnsAllInstancesOfAnimal_true” to reflect assertEquals method;`
 
 ### License
 
