@@ -2,12 +2,15 @@ import org.sql2o.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.sql.Timestamp;
+import java.util.Date;
 
 public class Sighting {
   private int animal_id;
   private String location;
   private String ranger_name;
   private int id;
+  private Timestamp last_seen;
 
   public Sighting(int animal_id, String location, String ranger_name) {
     this.animal_id = animal_id;
@@ -31,6 +34,10 @@ public class Sighting {
     return ranger_name;
   }
 
+  public Timestamp getSightingTime() {
+    return last_seen;
+  }
+
   @Override
   public boolean equals(Object otherSighting) {
     if(!(otherSighting instanceof Sighting)) {
@@ -43,7 +50,7 @@ public class Sighting {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO sightings (animal_id, location, ranger_name) VALUES (:animal_id, :location, :ranger_name);";
+      String sql = "INSERT INTO sightings (animal_id, location, ranger_name, last_seen) VALUES (:animal_id, :location, :ranger_name, now());";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("animal_id", this.animal_id)
         .addParameter("location", this.location)
@@ -51,6 +58,8 @@ public class Sighting {
         .throwOnMappingFailure(false)
         .executeUpdate()
         .getKey();
+      this.last_seen = new Timestamp(new Date().getTime());
+
     }
   }
 
