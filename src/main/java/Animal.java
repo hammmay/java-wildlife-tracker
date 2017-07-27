@@ -5,6 +5,8 @@ import java.util.List;
 public class Animal {
   public String name;
   public int id;
+  public String type;
+  public static final String DATABASE_TYPE = "non-endangered";
 
   public Animal(String name) {
     this.name = name;
@@ -30,18 +32,21 @@ public class Animal {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO animals (name) VALUES (:name);";
+      String sql = "INSERT INTO animals (name, type) VALUES (:name, :type);";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
+        .addParameter("type", DATABASE_TYPE)
         .executeUpdate()
         .getKey();
+      this.type = DATABASE_TYPE;
     }
   }
 
   public static List<Animal> all() {
+    String sql = "SELECT * FROM animals WHERE type='non-endangered';";
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM animals;";
       return con.createQuery(sql)
+        .throwOnMappingFailure(false)
         .executeAndFetch(Animal.class);
     }
   }
@@ -51,29 +56,30 @@ public class Animal {
       String sql = "SELECT * FROM animals WHERE id=:id;";
       Animal animal = con.createQuery(sql)
         .addParameter("id", id)
+        .throwOnMappingFailure(false)
         .executeAndFetchFirst(Animal.class);
       return animal;
     }
   }
 
-  public void updateName(String name) {
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE animals SET name=:name WHERE id=:id;";
-      con.createQuery(sql)
-        .addParameter("id", id)
-        .addParameter("name", name)
-        .executeUpdate();
-    }
-  }
-
-  public void delete() {
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "DELETE FROM animals WHERE id=:id;";
-      con.createQuery(sql)
-        .addParameter("id", id)
-        .executeUpdate();
-    }
-  }
+  // public void updateName(String name) {
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "UPDATE animals SET name=:name WHERE id=:id;";
+  //     con.createQuery(sql)
+  //       .addParameter("id", id)
+  //       .addParameter("name", name)
+  //       .executeUpdate();
+  //   }
+  // }
+  //
+  // public void delete() {
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "DELETE FROM animals WHERE id=:id;";
+  //     con.createQuery(sql)
+  //       .addParameter("id", id)
+  //       .executeUpdate();
+  //   }
+  // }
 
   public List<Sighting> getSightings() {
     try(Connection con = DB.sql2o.open()) {

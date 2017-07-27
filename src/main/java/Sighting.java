@@ -13,7 +13,6 @@ public class Sighting {
     this.animal_id = animal_id;
     this.location = location;
     this.ranger_name = ranger_name;
-    this.id = id;
   }
 
   public int getId() {
