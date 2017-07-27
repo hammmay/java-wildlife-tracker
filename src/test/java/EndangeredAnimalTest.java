@@ -24,13 +24,6 @@ public class EndangeredAnimalTest {
 
 //new
   @Test
-  public void getHealth_endangeredAnimalInstantiatesWithHealth_Healthy() {
-    EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Fox", "Healthy", "Young");
-    assertEquals("Healthy", testEndangeredAnimal.getHealth());
-  }
-
-//new
-  @Test
   public void getAge_endangeredAnimalInstantiatesWithAge_Young() {
     EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Fox", "Healthy", "Young");
     assertEquals("Young", testEndangeredAnimal.getAge());
@@ -44,7 +37,6 @@ public class EndangeredAnimalTest {
     assertTrue(firstEndangeredAnimal.equals(anotherEndangeredAnimal));
   }
 
-//needs save for database attribute retrieval? what is the difference between this and instantiating with health?
   @Test
   public void getHealth_returnsHealthAttribute_true() {
     EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Fox", "Healthy", "Young");
@@ -55,18 +47,19 @@ public class EndangeredAnimalTest {
   public void save_assignsIdAndSavesObjectToDatabase_true() {
     EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Fox", "Healthy", "Young");
     testEndangeredAnimal.save();
-    EndangeredAnimal savedEndangeredAnimal = EndangeredAnimal.all().get(0);
+
+    EndangeredAnimal savedEndangeredAnimal = EndangeredAnimal.allEndangeredAnimals().get(0);
     assertEquals(testEndangeredAnimal.getId(), savedEndangeredAnimal.getId());
   }
 
   @Test
-  public void all_returnsAllInstancesOfEndangeredAnimal_true() {
+  public void allEndangeredAnimals_returnsAllInstancesOfEndangeredAnimal_true() {
     EndangeredAnimal firstEndangeredAnimal = new EndangeredAnimal("Fox", "Healthy", "Young");
     firstEndangeredAnimal.save();
     EndangeredAnimal secondEndangeredAnimal = new EndangeredAnimal("Badger", "Okay", "Adult");
     secondEndangeredAnimal.save();
-    assertEquals(true, EndangeredAnimal.all().get(0).equals(firstEndangeredAnimal));
-    assertEquals(true, EndangeredAnimal.all().get(1).equals(secondEndangeredAnimal));
+    assertEquals(true, EndangeredAnimal.allEndangeredAnimals().get(0).equals(firstEndangeredAnimal));
+    assertEquals(true, EndangeredAnimal.allEndangeredAnimals().get(1).equals(secondEndangeredAnimal));
   }
 
   @Test

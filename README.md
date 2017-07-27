@@ -29,6 +29,11 @@ To create the necessary databases, launch postgres, then psql, and run the follo
 * `EndangeredAnimalTest.java: test name changed to “save_assignsIdAndSavesObjectToDatabase_true” to reflect assertEquals method;`
 * `Added missing tests to EndangeredAnimalTest.java;`
 * `AnimalTest.java: test name changed to “all_returnsAllInstancesOfAnimal_true” to reflect assertEquals method;`
+* 'Changed all public member variables in EndangeredAnimal.java to private;`
+* 'Added extends to EndangeredAnimal member variables to make EndangeredAnimal a child class of Animal;`
+* ';`
+* ';`
+* ';`
 
 ### License
 

@@ -2,16 +2,13 @@ import org.sql2o.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EndangeredAnimal {
-  public String name;
+public class EndangeredAnimal extends Animal {
   private String health;
   private String age;
-  public int id;
-  public boolean endangered;
+  private boolean endangered;
 
   public EndangeredAnimal(String name, String health, String age) {
-    this.name = name;
-    this.id = id;
+    super(name);
     this.health = health;
     this.age = age;
   }
@@ -22,14 +19,6 @@ public class EndangeredAnimal {
 
   public String getAge() {
     return age;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public int getId() {
-    return id;
   }
 
   @Override
@@ -54,7 +43,7 @@ public class EndangeredAnimal {
     }
   }
 
-  public static List<EndangeredAnimal> all() {
+  public static List<EndangeredAnimal> allEndangeredAnimals() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM endangered_animals;";
       return con.createQuery(sql)
