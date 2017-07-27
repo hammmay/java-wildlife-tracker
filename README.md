@@ -10,12 +10,11 @@ The Forest Service is considering a proposal from a timber company to clearcut a
 
 To create the necessary databases, launch postgres, then psql, and run the following commands:
 
-* `CREATE DATABASE wildlife_tracker;`
-* `\c wildlife_tracker;`
-* `CREATE TABLE animals (id serial PRIMARY KEY, name varchar);`
-* `CREATE TABLE endangered_animals (id serial PRIMARY KEY, name varchar, health varchar, age varchar);`
-* `CREATE TABLE sightings (id serial PRIMARY KEY, animal_id int, location varchar, ranger_name varchar);`
-* `CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;`
+* `CREATE DATABASE wildlife_tracker2;`
+* `\c wildlife_tracker2;`
+* `CREATE TABLE animals (id serial PRIMARY KEY, type varchar, name varchar, health varchar, age varchar);`
+* `CREATE TABLE sightings (id serial PRIMARY KEY, animal_id int, location varchar, ranger_name varchar, last_seen timestamp);`
+* `CREATE DATABASE wildlife_tracker2_test WITH TEMPLATE wildlife_tracker2;`
 
 ### Code Edits Made
 
@@ -29,11 +28,13 @@ To create the necessary databases, launch postgres, then psql, and run the follo
 * `EndangeredAnimalTest.java: test name changed to “save_assignsIdAndSavesObjectToDatabase_true” to reflect assertEquals method;`
 * `Added missing tests to EndangeredAnimalTest.java;`
 * `AnimalTest.java: test name changed to “all_returnsAllInstancesOfAnimal_true” to reflect assertEquals method;`
-* 'Changed all public member variables in EndangeredAnimal.java to private;`
+* 'Removed id in both animal and endangeredAnimal constructors;`
 * 'Added extends to EndangeredAnimal member variables to make EndangeredAnimal a child class of Animal;`
-* ';`
-* ';`
-* ';`
+* 'Added necessary code to  transform EndangeredAnimal into child object of parent class Animal;`
+* 'Consolidated the endangered_animals table into animals table;`
+* 'Added front end and back end code as well as amending the sightings table to add timestamp to sightings log;`
+* 'Removed unnecessary code for update and delete functions;'
+* 'Added font color css;'
 
 ### License
 

@@ -70,23 +70,4 @@ public class EndangeredAnimal extends Animal {
     }
   }
 
-  // public void updateHealth(String health) {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "UPDATE animals SET health=:health WHERE id=:id;";
-  //     con.createQuery(sql)
-  //       .addParameter("id", id)
-  //       .addParameter("health", health)
-  //       .executeUpdate();
-  //   }
-  // }
-  //
-  // public void updateAge(String age) {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "UPDATE animals SET age=:age WHERE id=:id;";
-  //     con.createQuery(sql)
-  //       .addParameter("age", age)
-  //       .addParameter("id", id)
-  //       .executeUpdate();
-  //   }
-  // }
 }

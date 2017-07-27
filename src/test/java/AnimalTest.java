@@ -45,7 +45,6 @@ public class AnimalTest {
     secondAnimal.save();
     assertEquals(true, Animal.all().get(0).equals(firstAnimal));
     assertEquals(true, Animal.all().get(1).equals(secondAnimal));
-
   }
 
   @Test
@@ -56,21 +55,6 @@ public class AnimalTest {
     secondAnimal.save();
     assertEquals(Animal.find(secondAnimal.getId()), secondAnimal);
   }
-
-  // @Test
-  // public void delete_deletesAnimalFromDatabase_0() {
-  //   Animal testAnimal = new Animal("Deer");
-  //   testAnimal.save();
-  //   testAnimal.delete();
-  //   assertEquals(0, Animal.all().size());
-  // }
-  //
-  // public void updateName_updatesAnimalNameInDatabase_String() {
-  //   Animal testAnimal = new Animal("Deer");
-  //   testAnimal.save();
-  //   testAnimal.updateName("Buck");
-  //   assertEquals("Buck", testAnimal.getName());
-  // }
 
   @Test
   public void find_returnsNullWhenNoAnimalFound_null() {
