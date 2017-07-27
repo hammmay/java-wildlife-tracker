@@ -28,13 +28,13 @@ To create the necessary databases, launch postgres, then psql, and run the follo
 * `EndangeredAnimalTest.java: test name changed to “save_assignsIdAndSavesObjectToDatabase_true” to reflect assertEquals method;`
 * `Added missing tests to EndangeredAnimalTest.java;`
 * `AnimalTest.java: test name changed to “all_returnsAllInstancesOfAnimal_true” to reflect assertEquals method;`
-* 'Removed id in both animal and endangeredAnimal constructors;`
-* 'Added extends to EndangeredAnimal member variables to make EndangeredAnimal a child class of Animal;`
-* 'Added necessary code to  transform EndangeredAnimal into child object of parent class Animal;`
-* 'Consolidated the endangered_animals table into animals table;`
-* 'Added front end and back end code as well as amending the sightings table to add timestamp to sightings log;`
-* 'Removed unnecessary code for update and delete functions;'
-* 'Added font color css;'
+* `Removed id in both animal and endangeredAnimal constructors;`
+* `Added extends to EndangeredAnimal member variables to make EndangeredAnimal a child class of Animal;`
+* `Added necessary code to  transform EndangeredAnimal into child object of parent class Animal;`
+* `Consolidated the endangered_animals table into animals table;`
+* `Added front end and back end code as well as amending the sightings table to add timestamp to sightings log;`
+* `Removed unnecessary code for update and delete functions;`
+* `Added font color css;`
 
 ### License
 
